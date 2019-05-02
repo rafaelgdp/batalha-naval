@@ -271,6 +271,16 @@ class Game():
         for posicao in posicoes:
             self.board.blit(self.HIT_MARINHO, posicao)
 
+    def draw_mensagens(self):
+        if (self.estado_jogo == Game.State.VEZ_JOGADOR_1):
+                self.imprime_hint_tela("Agora é a vez do jogador 1.")
+        elif (self.estado_jogo == Game.State.VEZ_JOGADOR_2):
+            self.imprime_hint_tela("Agora é a vez do jogador 2.")
+        elif (self.estado_jogo == Game.State.INICIO_JOGADOR_1):
+            self.imprime_hint_tela("Vez do jogador 1 colocar os navios.")
+        elif (self.estado_jogo == Game.State.INICIO_JOGADOR_2):
+            self.imprime_hint_tela("Vez do jogador 2 colocar os navios.")
+
     def reagir_a_clique(self, posicao_clique):
         if (self.estado_jogo == Game.State.INICIO_JOGADOR_1):
             if (len(self.jogador_1.get_embarcacoes()) >= self.MAXIMO_EMBARCACOES):
@@ -365,14 +375,7 @@ class Game():
             self.update_celulas_embarcacoes()
             self.draw_embarcacoes(self.jogador_1.get_embarcacoes())
             self.draw_embarcacoes(self.jogador_2.get_embarcacoes())
-            if (self.estado_jogo == Game.State.VEZ_JOGADOR_1):
-                self.imprime_hint_tela("Agora é a vez do jogador 1.")
-            elif (self.estado_jogo == Game.State.VEZ_JOGADOR_2):
-                self.imprime_hint_tela("Agora é a vez do jogador 2.")
-            elif (self.estado_jogo == Game.State.INICIO_JOGADOR_1):
-                self.imprime_hint_tela("Vez do jogador 1 colocar os navios.")
-            elif (self.estado_jogo == Game.State.INICIO_JOGADOR_2):
-                self.imprime_hint_tela("Vez do jogador 2 colocar os navios.")
+            self.draw_mensagens()
             self.draw_hits_marinhos(self.jogador_1.hits_marinhos)
             self.draw_hits_marinhos(self.jogador_2.hits_marinhos)
             pygame.display.update()
