@@ -6,7 +6,7 @@
 
 ## Intruções de uso
 
-Além de algumas bibliotecas padrões do Python 3, é necessário instalar as bibliotecas: pygame
+Além de algumas bibliotecas padrões do Python 3, é necessário instalar a biblioteca 'pygame'
 
 OBS.: O módulo enum só está disponível a partir do Python 3.4.
 
